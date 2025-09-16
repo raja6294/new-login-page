@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Signup System</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <!-- Role Selection Page -->
+    
+
+    <div class="role-selection" id="roleSelection">
+        <h1 class="role-title">Welcome to Safe Travel</h1>
+        <p class="role-subtitle">Please select your role to continue</p>
+        <div class="role-cards">
+            <div class="role-card" onclick="selectRole('tourist')">
+                <div class="role-icon">🏛️</div>
+                <h3 class="role-name">Tourist</h3>
+                <p class="role-description">Explore historical sites, monuments, and cultural attractions in your area</p>
+            </div>
+            <div class="role-card" onclick="selectRole('police')">
+                <div class="role-icon">👮</div>
+                <h3 class="role-name">Rescue Authority</h3>
+                <p class="role-description">Access law enforcement tools and manage security operations</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Container -->
+    <div class="container" id="loginContainer">
+        <button class="back-btn" onclick="goBackToRoleSelection()">← Back</button>
+        <div class="curved-shape"></div>
+        <div class="curved-shape2"></div>
+        
+        <div class="form-box Login">
+            <h2 class="animation" style="--D:0; --S:21">Login</h2>
+            <form onsubmit="handleLogin(event)">
+                <div class="input-box animation" style="--D:1; --S:22">
+                    <input type="text" id="loginUsername" required>
+                    <label>Username</label>
+                    <box-icon type='solid' name='user' color="gray"></box-icon>
+                </div>
+                <div class="input-box animation" style="--D:2; --S:23">
+                    <input type="password" id="loginPassword" required>
+                    <label>Password</label>
+                    <box-icon name='lock-alt' type='solid' color="gray"></box-icon>
+                </div>
+                <div class="input-box animation" style="--D:3; --S:24">
+                    <button class="btn" type="submit">Login</button>
+                </div>
+                <div class="regi-link animation" style="--D:4; --S:25">
+                    <p>Don't have an account? <br> <a href="#" class="SignUpLink">Sign Up</a></p>
+                </div>
+            </form>
+        </div>
+
+        <div class="info-content Login">
+            <h2 class="animation" style="--D:0; --S:20">WELCOME BACK!</h2>
+            <p class="animation" style="--D:1; --S:21">We are happy to have you with us again. If you need anything, we are here to help.</p>
+        </div>
+
+        <div class="form-box Register">
+            <h2 class="animation" style="--li:17; --S:0">Register</h2>
+            <form onsubmit="handleRegister(event)">
+                <div class="input-box animation" style="--li:18; --S:1">
+                    <input type="text" id="registerUsername" required>
+                    <label>Username</label>
+                    <box-icon type='solid' name='user' color="gray"></box-icon>
+                </div>
+                <div class="input-box animation" style="--li:19; --S:2">
+                    <input type="email" id="registerEmail" required>
+                    <label>Email</label>
+                    <box-icon name='envelope' type='solid' color="gray"></box-icon>
+                </div>
+                <div class="input-box animation" style="--li:19; --S:3">
+                    <input type="password" id="registerPassword" required>
+                    <label>Password</label>
+                    <box-icon name='lock-alt' type='solid' color="gray"></box-icon>
+                </div>
+                <div class="input-box animation" style="--li:20; --S:4">
+                    <button class="btn" type="submit">Register</button>
+                </div>
+                <div class="regi-link animation" style="--li:21; --S:5">
+                    <p>Already have an account? <br> <a href="#" class="SignInLink">Sign In</a></p>
+                </div>
+            </form>
+        </div>
+
+        <div class="info-content Register">
+            <h2 class="animation" style="--li:17; --S:0">WELCOME!</h2>
+            <p class="animation" style="--li:18; --S:1">We're delighted to have you here. If you need any assistance, feel free to reach out.</p>
+        </div>
+    </div>
+
+    <!-- Tourist Dashboard -->
+    <div class="dashboard" id="touristDashboard">
+        <div class="dashboard-header">
+            <h1 class="dashboard-title">Tourist Dashboard</h1>
+            <button class="logout-btn" onclick="logout()">Logout</button>
+        </div>
+        <div class="dashboard-content">
+            <div class="dashboard-card">
+                <h3 class="card-title">Popular Attractions</h3>
+                <p class="card-content">Discover the most visited historical sites, museums, and cultural landmarks in your area. Get detailed information, opening hours, and visitor reviews.</p>
+            </div>
+            <div class="dashboard-card">
+                <h3 class="card-title">Guided Tours</h3>
+                <p class="card-content">Book guided tours with local experts. Choose from walking tours, bus tours, or specialized historical expeditions tailored to your interests.</p>
+            </div>
+            <div class="dashboard-card">
+                <h3 class="card-title">Interactive Map</h3>
+                <p class="card-content">Navigate through the city with our interactive map featuring tourist hotspots, restaurants, hotels, and transportation options.</p>
+            </div>
+            <div class="dashboard-card">
+                <h3 class="card-title">Travel Planner</h3>
+                <p class="card-content">Create personalized itineraries based on your preferences, duration of stay, and budget. Save favorite locations and plan your perfect trip.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Police Dashboard -->
+    <div class="dashboard" id="policeDashboard">
+        <div class="dashboard-header">
+            <h1 class="dashboard-title">Police Dashboard</h1>
+            <button class="logout-btn" onclick="logout()">Logout</button>
+        </div>
+        <div class="dashboard-content">
+            <div class="dashboard-card">
+                <h3 class="card-title">Threat Assessment</h3>
+                <p class="card-content">Real-time monitoring of security threats, crowd analysis, and predictive safety modeling to maintain secure environments for all explorers.</p>
+            </div>
+            <div class="dashboard-card">
+                <h3 class="card-title">Response Coordination</h3>
+                <p class="card-content">Streamlined emergency response system with automated dispatch, resource allocation, and inter-agency communication protocols.</p>
+            </div>
+            <div class="dashboard-card">
+                <h3 class="card-title">Guardian Network</h3>
+                <p class="card-content">Coordinate with field units, manage patrol zones, and maintain communication with the guardian network for comprehensive area coverage.</p>
+            </div>
+            <div class="dashboard-card">
+                <h3 class="card-title">Safety Analytics</h3>
+                <p class="card-content">Advanced data visualization of safety patterns, incident trends, and resource optimization insights to enhance protective measures.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script2.js"></script>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+</body>
+</html>
