@@ -6,6 +6,10 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
     color: #dedcdc;
+.container .info-content.Register .animation.inactive {
+    opacity: 0;
+    filter: blur(10px);
+    transition-delay: calc(.1s * var(--S));
 }
 
 body {
@@ -356,8 +360,11 @@ body {
     filter: blur(0);
     transition-delay: calc(.15s * var(--li));
 }
+}
+
+.container .info-content.Register .animation.inactive {
     opacity: 0;
-    filter: blur(10PX);
+    filter: blur(10px);
     transition-delay: calc(.1s * var(--S));
 }
 
